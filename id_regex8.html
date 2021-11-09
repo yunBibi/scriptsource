@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+
+        <div>
+            <label for="">비밀번호</label>
+            <input type="text" name="password" onkeyup="pwdCheck(this.value)">
+        </div>
+    </form>
+    <p id="result" style="color: red"></p>
+    <script>
+        let result = document.querySelector("#result");
+        function pwdCheck(password) {
+            console.log(password);
+
+            // 비밀번호 유효성 검증
+            // 영대소문자,숫자, 특수문자(#$!)
+            // 비밀번호 길이는 8~15자
+            const reg = /^(?=.*[A-Za-z])(?=.*[\d])(?=.*[!$#])[A-Za-z\d!$#]{8,15}$/;
+
+            document.querySelector("#result").innerHTML = reg.test(password);
+
+        }
+    </script>
+</body>
+
+</html>
